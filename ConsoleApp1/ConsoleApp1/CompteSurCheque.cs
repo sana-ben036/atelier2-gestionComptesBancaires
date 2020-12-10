@@ -8,7 +8,7 @@ namespace ConsoleApp1
     {
         private int NumeroCheque;
         private int NumeroCarte;
-        private DateTime DateFinValiditeCarte;
+        private string DateFinValiditeCarte;
 
 
 
@@ -16,7 +16,7 @@ namespace ConsoleApp1
         {
 
         }
-        public CompteSurCheque(int n1, int n2, DateTime t, int n, string p, decimal s)
+        public CompteSurCheque(int n1, int n2, string t, int n, string p, decimal s)
            : base(n, p, s)
         {
             NumeroCheque = n1;

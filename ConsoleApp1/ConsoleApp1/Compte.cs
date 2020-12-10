@@ -38,6 +38,14 @@ namespace ConsoleApp1
         }
 
 
+        // setters-------------------------
+
+        public void SetSolde(decimal value )
+        {
+            Solde= value;
+        }
+
+
         // abstract method 
 
         public abstract void Debiter(decimal montant);
