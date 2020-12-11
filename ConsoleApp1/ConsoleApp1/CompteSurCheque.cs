@@ -23,12 +23,45 @@ namespace ConsoleApp1
             NumeroCarte = n2;
             DateFinValiditeCarte = t;
         }
+
+        // getters-----------------------
+        public int GetNumeroCheque()
+        {
+            return NumeroCheque;
+        }
+        public int GetNumeroCarte()
+        {
+            return NumeroCarte;
+        }
+        public string GetDateFinValiditeCarte()
+        {
+            return DateFinValiditeCarte;
+        }
+
+        public override string GetInfo()
+        {
+            string info = "le Numero de compte : " + Numero + "\n"
+                + "le nom de proproetaire  : " + NomProprietaire + "\n"
+                + "le solde actuel  : " + Solde + " DH \n"
+                + "le numero de cheque : " + NumeroCheque + "\n"
+                + "le numero de carte : " + NumeroCarte + "\n"
+                + "la date de validité de la cart  : " + DateFinValiditeCarte + " DH \n";
+
+
+            return info; 
+
+        }
+
+
+
+
+        //methods ---------------------------
         public override void Debiter(decimal montant)
         {
 
             if (montant > Solde)
             {
-                throw new Exception();
+                throw new Exception("le montant doit etre inferieur ou egale au solde disponible ");
 
             }
             else
@@ -42,13 +75,9 @@ namespace ConsoleApp1
             Solde += montant;
 
 
-
-
-
-
-
-
         }
+
+        
 
 
 

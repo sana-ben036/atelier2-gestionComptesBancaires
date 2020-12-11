@@ -7,7 +7,7 @@ namespace ConsoleApp1
     class Banque
     {
         // les champs
-        private List<Compte> listComptes;
+        public List<Compte> listComptes;
 
         public Banque()
         {
@@ -15,7 +15,7 @@ namespace ConsoleApp1
 
         }
 
-        public int ChercherCompte(int numero)
+        /*public int ChercherCompte(int numero)
         {
 
 
@@ -25,28 +25,30 @@ namespace ConsoleApp1
                 {
                     int indice = listComptes.IndexOf(compte);
                     return indice;
+
                 }
                 else
                 {
-                    return -1;
+                    Console.WriteLine(-1);
                 }
-
+                
             }
-
-        }
+            
+        }*/
 
 
         public void AjouterCompteSurCarnet(int n1, int n, string p, decimal s)
         {
-            foreach(Compte compte in listComptes)
+            foreach(CompteSurCarnet compte in listComptes)
             {
-                if(compte.GetNumero() == n)
+                if(compte.GetNumeroCarnet() == n1)
                 {
                     Console.WriteLine("LE COMPTE EST EXIST");
                 }
                 else
                 {
                     listComptes.Add(new CompteSurCarnet(n1, n, p, s));
+                    Console.WriteLine("un compte carnet ajoute");
 
                 }
 
@@ -56,15 +58,16 @@ namespace ConsoleApp1
 
         public void AjouterCompteSurCheque(int n1, int n2, string t, int n, string p, decimal s)
         {
-            foreach (Compte compte in listComptes)
+            foreach (CompteSurCheque compte in listComptes)
             {
-                if (compte.GetNumero() == n)
+                if (compte.GetNumeroCheque() == n1)
                 {
                     Console.WriteLine("LE COMPTE EST EXIST");
                 }
                 else
                 {
                     listComptes.Add(new CompteSurCheque(n1, n2, t, n, p, s));
+                    Console.WriteLine("un compte cheque ajoute");
 
                 }
 
@@ -81,36 +84,36 @@ namespace ConsoleApp1
                     listComptes.Remove(compte);
                     Console.WriteLine("Un compte est bien supprimé");
                 }
+                else
+                {
+                    Console.WriteLine("Ce compte est introuvable");
+                }
             }
         }
 
-        public string  GetInfoCompte(int numero)
+        public void  GetInfoCompte(int numero)
         {
             foreach (Compte compte in listComptes)
             {
                 if(compte.GetNumero() == numero)
                 {
-                    string info = "le Numero de compte : " + compte.GetNumero() + "\n"
-                + "le nom de proproetaire  : " + compte.GetNomProprietaire() + "\n"
-                + "le solde actuel  : " + compte.GetSolde() + " DH \n";
-
-                    return info;
+                    compte.GetInfo();
 
                 }
                 else
                 {
-                    Console.WriteLine("CE COMPTE EST INTROUVABLE");
-
+                    Console.WriteLine("Numero compte est introuvable ");
                 }
+                
 
             }
         }
 
         public void AfficherList()
         {
-            foreach (Compte compte in listComptes)
+            foreach(Compte compte in listComptes)
             {
-                compte.GetInfo();
+                Console.WriteLine(compte.GetInfo());
             }
         }
 

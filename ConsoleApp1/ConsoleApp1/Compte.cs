@@ -50,6 +50,7 @@ namespace ConsoleApp1
 
         public abstract void Debiter(decimal montant);
         public abstract void Crediter(decimal montant);
+        public abstract string GetInfo();
 
 
 
