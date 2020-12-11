@@ -28,7 +28,7 @@ namespace ConsoleApp1
         {
             string info = "le Numero de compte : " + Numero + "\n"
                 + "le nom de proproetaire  : " + NomProprietaire + "\n"
-                + "le solde actuel  : " + Solde + " DH \n"
+                + "le solde  : " + Solde + " DH \n"
                 + "le numero de cheque : " + NumeroCarnet + "\n";
                
 
@@ -42,12 +42,12 @@ namespace ConsoleApp1
         {
             if (montant > Solde)
             {
-                throw new Exception("le montant doit etre inferieur ou egale au solde disponible ");
+                throw new Exception();
 
             }
             else if (montant > 10000)
             {
-                throw new Exception("le montant ne doit pas dépasser le plafond du 10000 DH");
+                throw new Exception();
             }
             else
             {

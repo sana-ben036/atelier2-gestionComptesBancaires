@@ -42,10 +42,10 @@ namespace ConsoleApp1
         {
             string info = "le Numero de compte : " + Numero + "\n"
                 + "le nom de proproetaire  : " + NomProprietaire + "\n"
-                + "le solde actuel  : " + Solde + " DH \n"
+                + "le solde  : " + Solde + " DH \n"
                 + "le numero de cheque : " + NumeroCheque + "\n"
                 + "le numero de carte : " + NumeroCarte + "\n"
-                + "la date de validité de la cart  : " + DateFinValiditeCarte + " DH \n";
+                + "la date de validité de la cart  : " + DateFinValiditeCarte + "  \n";
 
 
             return info; 
@@ -61,7 +61,7 @@ namespace ConsoleApp1
 
             if (montant > Solde)
             {
-                throw new Exception("le montant doit etre inferieur ou egale au solde disponible ");
+                throw new Exception();
 
             }
             else

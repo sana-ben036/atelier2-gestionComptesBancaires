@@ -15,79 +15,101 @@ namespace ConsoleApp1
 
         }
 
-        /*public int ChercherCompte(int numero)
+        public void ChercherCompte(int numero)
         {
-
-
-            foreach (Compte compte in listComptes)
+            if (listComptes.Count > 0)
             {
-                if (compte.GetNumero() == numero)
+                foreach (Compte compte in listComptes)
                 {
-                    int indice = listComptes.IndexOf(compte);
-                    return indice;
+                    if (compte.GetNumero() == numero)
+                    {
+                        int indice = listComptes.IndexOf(compte);
+                        Console.WriteLine( indice ); 
+
+                    }
+                    else
+                    {
+                        Console.WriteLine(-1);
+                    }
 
                 }
-                else
-                {
-                    Console.WriteLine(-1);
-                }
-                
             }
+            else
+            {
+                Console.WriteLine(-1);
+            }
+
             
-        }*/
+        }
 
 
         public void AjouterCompteSurCarnet(int n1, int n, string p, decimal s)
         {
-            foreach(CompteSurCarnet compte in listComptes)
+
+            if (listComptes.Count > 0)
             {
-                if(compte.GetNumeroCarnet() == n1)
+                foreach (Compte compte in listComptes)
                 {
-                    Console.WriteLine("LE COMPTE EST EXIST");
-                }
-                else
-                {
-                    listComptes.Add(new CompteSurCarnet(n1, n, p, s));
-                    Console.WriteLine("un compte carnet ajoute");
+                    if (compte.GetNumero() == n)
+                    {
+                        Console.WriteLine("LE COMPTE EST EXIST");
+                    }
+                    else
+                    {
+                        listComptes.Add(new CompteSurCarnet(n1, n, p, s));
+
+                    }
 
                 }
-
             }
-            
+            else
+            {
+                listComptes.Add(new CompteSurCarnet(n1, n, p, s));
+            }
+
+
         }
 
         public void AjouterCompteSurCheque(int n1, int n2, string t, int n, string p, decimal s)
         {
-            foreach (CompteSurCheque compte in listComptes)
+            
+            if (listComptes.Count > 0 )
             {
-                if (compte.GetNumeroCheque() == n1)
+                foreach (Compte compte in listComptes)
                 {
-                    Console.WriteLine("LE COMPTE EST EXIST");
-                }
-                else
-                {
-                    listComptes.Add(new CompteSurCheque(n1, n2, t, n, p, s));
-                    Console.WriteLine("un compte cheque ajoute");
+                    if (compte.GetNumero() == n)
+                    {
+                        Console.WriteLine("LE COMPTE EST EXIST");
+                    }
+                    else
+                    {
+                        listComptes.Add(new CompteSurCheque(n1, n2, t, n, p, s));
+
+                    }
 
                 }
-
             }
+            else
+            {
+                listComptes.Add(new CompteSurCheque(n1, n2, t, n, p, s));
+            }
+
+
+
+
+
 
         }
 
         public void DeleteCompte(int numero)
         {
-            foreach (Compte compte in listComptes)
+            if (listComptes.Count > 0)
             {
-                if (compte.GetNumero() == numero)
-                {
-                    listComptes.Remove(compte);
-                    Console.WriteLine("Un compte est bien supprimé");
-                }
-                else
-                {
-                    Console.WriteLine("Ce compte est introuvable");
-                }
+                listComptes.RemoveAll(x => x.GetNumero() == numero);
+            }
+            else
+            {
+                Console.WriteLine("La list est vide");
             }
         }
 
@@ -97,7 +119,7 @@ namespace ConsoleApp1
             {
                 if(compte.GetNumero() == numero)
                 {
-                    compte.GetInfo();
+                    Console.WriteLine(compte.GetInfo()); 
 
                 }
                 else
