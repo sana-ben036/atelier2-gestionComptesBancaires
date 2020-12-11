@@ -52,7 +52,7 @@ namespace ConsoleApp1
                 {
                     if (compte.GetNumero() == n)
                     {
-                        Console.WriteLine("LE COMPTE EST EXIST");
+                        Console.WriteLine("Ce compte est déja enregisté ");
                     }
                     else
                     {
@@ -79,7 +79,7 @@ namespace ConsoleApp1
                 {
                     if (compte.GetNumero() == n)
                     {
-                        Console.WriteLine("LE COMPTE EST EXIST");
+                        Console.WriteLine("Ce compte est déja enregisté");
                     }
                     else
                     {
@@ -124,7 +124,7 @@ namespace ConsoleApp1
                 }
                 else
                 {
-                    Console.WriteLine("Numero compte est introuvable ");
+                    Console.WriteLine("Numero de compte est introuvable ");
                 }
                 
 
