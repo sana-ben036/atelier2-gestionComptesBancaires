@@ -22,9 +22,7 @@ namespace ConsoleApp1
 
             if (compte != null)
 
-                Console.WriteLine("l'index du compte est : "+ listComptes.IndexOf(compte));
-            
-
+                Console.WriteLine("l'index du compte recherché est : "+ listComptes.IndexOf(compte));
             else
             {
                 Console.WriteLine(-1);
@@ -60,12 +58,6 @@ namespace ConsoleApp1
             {
                 listComptes.Add(new CompteSurCheque(n1, n2, t, n, p, s));
             }
-              
-            
-
-            
-
-
 
         }
 
@@ -81,16 +73,16 @@ namespace ConsoleApp1
             }
         }
 
-        public void  GetInfoCompte(int numero)
+        public void  GetInfoCompte(int numero)  // non determiner
         {
-            bool exist = listComptes.Exists(compte => compte.GetNumero() == numero);
-            if (exist == true)
+            Compte compte = listComptes.Find(compte => compte.GetNumero() == numero);
+            if (compte != null)
             {
-                Console.WriteLine(""); 
+                Console.WriteLine(compte.GetInfo()); 
             }
             else
             {
-                    Console.WriteLine("Numero de compte est introuvable ");
+                Console.WriteLine("Numero de compte est introuvable ");
             }
  
         }
