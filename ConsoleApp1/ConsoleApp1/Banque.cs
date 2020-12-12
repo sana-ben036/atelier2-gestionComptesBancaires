@@ -96,7 +96,39 @@ namespace ConsoleApp1
         }
 
 
+        public void OperationDebiter(int numero, decimal montant)
+        {
+            Compte compte = listComptes.Find(compte => compte.GetNumero() == numero);
+            if (compte != null)
+            {
+                Console.WriteLine("Votre Numero de Compte  : " + compte.GetNumero());
+                Console.WriteLine( "Votre Solde : "+compte.GetSolde() + " DH");
+                Console.WriteLine("Le Montant Debité  : " + montant + " DH");
+                compte.Debiter(montant);
+                Console.WriteLine("Votre Nouveau Solde : " + compte.GetSolde() + " DH"); 
+            }
+            else
+            {
+                Console.WriteLine("Numero de compte est introuvable ");
+            }
+        }
 
+        public void OperationCrediter(int numero, decimal montant)
+        {
+            Compte compte = listComptes.Find(compte => compte.GetNumero() == numero);
+            if (compte != null)
+            {
+                Console.WriteLine("Votre Numero de Compte  : " + compte.GetNumero());
+                Console.WriteLine("Votre Solde : " + compte.GetSolde() + " DH");
+                Console.WriteLine("Le Montant Credité  : " + montant + " DH");
+                compte.Crediter(montant);
+                Console.WriteLine("Votre Nouveau Solde : " + compte.GetSolde() + " DH");
+            }
+            else
+            {
+                Console.WriteLine("Numero de compte est introuvable ");
+            }
+        }
 
 
 
