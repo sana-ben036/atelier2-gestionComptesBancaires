@@ -17,85 +17,53 @@ namespace ConsoleApp1
 
         public void ChercherCompte(int numero)
         {
-            if (listComptes.Count > 0)
-            {
-                foreach (Compte compte in listComptes)
-                {
-                    if (compte.GetNumero() == numero)
-                    {
-                        int indice = listComptes.IndexOf(compte);
-                        Console.WriteLine( indice ); 
 
-                    }
-                    else
-                    {
-                        Console.WriteLine(-1);
-                    }
+            Compte compte = listComptes.Find(compte => compte.GetNumero() == numero);
 
-                }
-            }
+            if (compte != null)
+
+                Console.WriteLine("l'index du compte est : "+ listComptes.IndexOf(compte));
+            
+
             else
             {
                 Console.WriteLine(-1);
             }
-
-            
+       
         }
 
 
         public void AjouterCompteSurCarnet(int n1, int n, string p, decimal s)
         {
-
-            if (listComptes.Count > 0)
+            bool exist = listComptes.Exists(compte => compte.GetNumero() == n);    // 
+            if (exist == true)
             {
-                foreach (Compte compte in listComptes)
-                {
-                    if (compte.GetNumero() == n)
-                    {
-                        Console.WriteLine("Ce compte est déja enregisté ");
-                    }
-                    else
-                    {
-                        listComptes.Add(new CompteSurCarnet(n1, n, p, s));
-
-                    }
-
-                }
+                Console.WriteLine("Le compte est déja enregistré"); ;
             }
             else
             {
                 listComptes.Add(new CompteSurCarnet(n1, n, p, s));
             }
 
-
+            
         }
 
         public void AjouterCompteSurCheque(int n1, int n2, string t, int n, string p, decimal s)
         {
             
-            if (listComptes.Count > 0 )
+            bool exist = listComptes.Exists(compte => compte.GetNumero() == n);    
+            if (exist == true) 
             {
-                foreach (Compte compte in listComptes)
-                {
-                    if (compte.GetNumero() == n)
-                    {
-                        Console.WriteLine("Ce compte est déja enregisté");
-                    }
-                    else
-                    {
-                        listComptes.Add(new CompteSurCheque(n1, n2, t, n, p, s));
-
-                    }
-
-                }
+                Console.WriteLine("Le compte est déja enregistré"); ; 
             }
-            else
+            else 
             {
                 listComptes.Add(new CompteSurCheque(n1, n2, t, n, p, s));
             }
+              
+            
 
-
-
+            
 
 
 
@@ -105,7 +73,7 @@ namespace ConsoleApp1
         {
             if (listComptes.Count > 0)
             {
-                listComptes.RemoveAll(x => x.GetNumero() == numero);
+                listComptes.RemoveAll(compte => compte.GetNumero() == numero);
             }
             else
             {
@@ -115,20 +83,16 @@ namespace ConsoleApp1
 
         public void  GetInfoCompte(int numero)
         {
-            foreach (Compte compte in listComptes)
+            bool exist = listComptes.Exists(compte => compte.GetNumero() == numero);
+            if (exist == true)
             {
-                if(compte.GetNumero() == numero)
-                {
-                    Console.WriteLine(compte.GetInfo()); 
-
-                }
-                else
-                {
-                    Console.WriteLine("Numero de compte est introuvable ");
-                }
-                
-
+                Console.WriteLine(""); 
             }
+            else
+            {
+                    Console.WriteLine("Numero de compte est introuvable ");
+            }
+ 
         }
 
         public void AfficherList()
