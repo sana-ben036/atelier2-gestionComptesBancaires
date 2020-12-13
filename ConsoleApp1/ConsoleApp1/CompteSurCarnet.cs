@@ -42,12 +42,12 @@ namespace ConsoleApp1
         {
             if (montant > Solde)
             {
-                throw new Exception();
+                throw new Exception("Solde insuffisant");
 
             }
             else if (montant > 10000)
             {
-                throw new Exception();
+                throw new Exception("Plafond dépassé");
             }
             else
             {

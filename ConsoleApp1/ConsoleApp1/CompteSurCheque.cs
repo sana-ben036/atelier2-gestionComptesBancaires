@@ -61,7 +61,7 @@ namespace ConsoleApp1
 
             if (montant > Solde)
             {
-                throw new Exception();
+                throw new Exception ("Solde insuffisant");
 
             }
             else
