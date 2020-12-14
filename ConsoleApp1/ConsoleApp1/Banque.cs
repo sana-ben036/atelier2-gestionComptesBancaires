@@ -8,6 +8,7 @@ namespace ConsoleApp1
     {
         // les champs
         public List<Compte> listComptes;
+        public Compte compte;
 
         public Banque()
         {
@@ -31,32 +32,32 @@ namespace ConsoleApp1
         }
 
 
-        public void AjouterCompteSurCarnet(int n1, int n, string p, decimal s)
+        public void AjouterCompteSurCarnet(Compte compte)
         {
-            bool exist = listComptes.Exists(compte => compte.GetNumero() == n);    // 
+            bool exist = listComptes.Exists(x => x.GetNumero() == compte.GetNumero());    // 
             if (exist == true)
             {
                 Console.WriteLine("Le compte est déja enregistré"); ;
             }
             else
             {
-                listComptes.Add(new CompteSurCarnet(n1, n, p, s));
+                listComptes.Add(compte);
             }
 
             
         }
 
-        public void AjouterCompteSurCheque(int n1, int n2, string t, int n, string p, decimal s)
+        public void AjouterCompteSurCheque(Compte compte)
         {
             
-            bool exist = listComptes.Exists(compte => compte.GetNumero() == n);    
+            bool exist = listComptes.Exists(x => x.GetNumero() == compte.GetNumero());    
             if (exist == true) 
             {
                 Console.WriteLine("Le compte est déja enregistré"); ; 
             }
             else 
             {
-                listComptes.Add(new CompteSurCheque(n1, n2, t, n, p, s));
+                listComptes.Add(compte);
             }
 
         }

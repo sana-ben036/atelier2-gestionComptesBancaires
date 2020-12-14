@@ -26,23 +26,25 @@ namespace ConsoleApp1
                             if(type == "CompteSurCarnet")
                             {
                                 Console.WriteLine("Enter les info du compte : NumeroCarnet ,NumeroCompte, NomProprietaire , Solde");
-                                int n1 = int.Parse(Console.ReadLine());
-                                int n = int.Parse(Console.ReadLine());
-                                string p = Console.ReadLine();
-                                decimal s = decimal.Parse(Console.ReadLine());
-                                bq.AjouterCompteSurCarnet( n1, n, p, s);
+                                //int n1 = int.Parse(Console.ReadLine());
+                                //int n = int.Parse(Console.ReadLine());
+                                //string p = Console.ReadLine();
+                                //decimal s = decimal.Parse(Console.ReadLine());
+                                CompteSurCarnet compte = new CompteSurCarnet(int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()), Console.ReadLine(), decimal.Parse(Console.ReadLine()));
+                                bq.AjouterCompteSurCarnet(compte);
                             }
                             else
                             {
                                 Console.WriteLine("Enter les info du compte : NumeroCheque,NumeroCarte,DateValidationCarte ,NumeroCompte, NomProprietaire , Solde");
                                
-                                int n1 = int.Parse(Console.ReadLine());
-                                int n2 = int.Parse(Console.ReadLine());
-                                string t = Console.ReadLine();
-                                int n = int.Parse(Console.ReadLine());
-                                string p = Console.ReadLine();
-                                decimal s = decimal.Parse(Console.ReadLine());
-                                bq.AjouterCompteSurCheque( n1,  n2, t, n, p, s);
+                                //int n1 = int.Parse(Console.ReadLine());
+                                //int n2 = int.Parse(Console.ReadLine());
+                                //string t = Console.ReadLine();
+                                //int n = int.Parse(Console.ReadLine());
+                                //string p = Console.ReadLine();
+                                //decimal s = decimal.Parse(Console.ReadLine());
+                                CompteSurCheque compte = new CompteSurCheque(int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()), Console.ReadLine(), int.Parse(Console.ReadLine()), Console.ReadLine(), decimal.Parse(Console.ReadLine()));
+                                bq.AjouterCompteSurCheque( compte);
                             }
 
                         }
